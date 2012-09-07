@@ -53,12 +53,13 @@ module.exports = function(options) {
             var bodyStream = fs.createReadStream( req.files[fieldname].path );
 
             // create the data for s3.PutObject()
-            var data = {
-                'BucketName'    : bucketName,
-                'ObjectName'    : req.files[fieldname].s3ObjectName,
-                'ContentLength' : req.files[fieldname].size,
-                'Body'          : bodyStream,
-            };
+			var data = {
+				'BucketName'	: bucketName,
+				'ObjectName'	: req.files[fieldname].s3ObjectName,
+				'ContentLength'	: req.files[fieldname].size,
+				'ContentType'	: req.files[fieldname].mime || 'binary/octet-stream',
+				'Body'			: bodyStream,
+			};
 
             s3.PutObject(data, function(err, data) {
                 // remember what happened
