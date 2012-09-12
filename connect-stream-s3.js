@@ -56,9 +56,9 @@ module.exports = function(options) {
 			var data = {
 				'BucketName'		: bucketName,
 				'ObjectName'		: req.files[fieldname].s3ObjectName,
+				'ContentDisposition'	: req.files[fieldname].s3ObjectContentDisposition,
 				'ContentLength'		: req.files[fieldname].size,
 				'ContentType'		: req.files[fieldname].mime || 'binary/octet-stream',
-				'ContentDisposition'	: req.files[fieldname].name,
 				'Body'			: bodyStream,
 			};
 
