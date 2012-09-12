@@ -54,10 +54,11 @@ module.exports = function(options) {
 
             // create the data for s3.PutObject()
 			var data = {
-				'BucketName'	: bucketName,
-				'ObjectName'	: req.files[fieldname].s3ObjectName,
-				'ContentLength'	: req.files[fieldname].size,
-				'ContentType'	: req.files[fieldname].mime || 'binary/octet-stream',
+				'BucketName'		: bucketName,
+				'ObjectName'		: req.files[fieldname].s3ObjectName,
+				'ContentLength'		: req.files[fieldname].size,
+				'ContentType'		: req.files[fieldname].mime || 'binary/octet-stream',
+				'ContentDisposition'	: req.files[fieldname].name,
 				'Body'			: bodyStream,
 			};
 
