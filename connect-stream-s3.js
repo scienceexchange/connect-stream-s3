@@ -60,7 +60,7 @@ module.exports = function(options) {
 				'ContentLength'		: req.files[fieldname].size,
 				'ContentType'		: req.files[fieldname].mime || 'binary/octet-stream',
 				'Body'			: bodyStream,
-				'ACL'			: req.files[fieldname].acl || 'private'
+				'Acl'			: req.files[fieldname].s3ObjectAcl || 'private'
 			};
 
             s3.PutObject(data, function(err, data) {
