@@ -71,6 +71,7 @@ module.exports = function(options) {
                 };
                 if (err) {
                     allOk = false;
+                    console.log(err);
                 } // else, everything was ok
 
                 // tell the queue we're finished with this file
