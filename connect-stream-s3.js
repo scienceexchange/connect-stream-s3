@@ -58,7 +58,7 @@ module.exports = function(options) {
 				'ObjectName'		: req.files[fieldname].s3ObjectName,
 				'ContentDisposition'	: req.files[fieldname].s3ObjectContentDisposition,
 				'ContentLength'		: req.files[fieldname].size,
-				'ContentType'		: req.files[fieldname].mime || 'binary/octet-stream',
+				'ContentType'		: req.files[fieldname].type || 'binary/octet-stream',
 				'Body'			: bodyStream,
 				'Acl'			: req.files[fieldname].s3ObjectAcl || 'private'
 			};
